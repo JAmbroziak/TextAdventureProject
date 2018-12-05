@@ -12,6 +12,14 @@ public class Room {
 		yLoc = y;
 	}
 
+	public String toString(){
+		if(occupant == null){
+			return "X";
+		} else {
+			return occupant.toString();
+		}
+	}
+
 	/**
 	 * Method controls the results when a person enters this room.
 	 * @param x the Person entering
@@ -32,5 +40,4 @@ public class Room {
 	{
 		occupant = null;
 	}
-	
 }

@@ -2,6 +2,7 @@ package Game;
 
 import People.Person;
 import Rooms.Room;
+import Rooms.Board;
 import Rooms.WinningRoom;
 import Rooms.CustomRoom;
 
@@ -14,7 +15,7 @@ public class Runner {
 	
 	public static void main(String[] args)
 	{
-		Room[][] building = new Room[3][3];
+		Room[][] building = new Room[5][5];
 		
 		//Fill the building with normal rooms
 		for (int x = 0; x<building.length; x++)
@@ -27,19 +28,21 @@ public class Runner {
 		
 		//Create a random winning room.
 		int x = (int)(Math.random()*building.length);
-		int y = (int)(Math.random()*building.length);
+		int y = (int)(Math.random()*building[0].length);
 		building[x][y] = new WinningRoom(x, y);
 
 		x = (int)(Math.random()*building.length);
-		y = (int)(Math.random()*building.length);
+		y = (int)(Math.random()*building[0].length);
 		building[x][y] = new CustomRoom(x, y);
 		 
 		 //Setup player 1 and the input scanner
 		Person player1 = new Person("FirstName", "FamilyName", 0,0);
 		building[0][0].enterRoom(player1);
+		Board board = new Board(building);
 		Scanner in = new Scanner(System.in);
 		while(gameOn)
 		{
+			board.print();
 			System.out.println("Where would you like to move? (Choose N, S, E, W)");
 			String move = in.nextLine();
 			if(validMove(move, player1, building))
@@ -123,7 +126,4 @@ public class Runner {
 	{
 		gameOn = false;
 	}
-	
-
-
 }

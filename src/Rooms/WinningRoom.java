@@ -11,6 +11,10 @@ public class WinningRoom extends Room
 
 	}
 
+	public String toString(){
+		return "W";
+	}
+
 	/**
 	 * Triggers the game ending conditions.
 	 * @param x the Person entering

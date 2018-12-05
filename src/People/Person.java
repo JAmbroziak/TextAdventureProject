@@ -8,6 +8,9 @@ public class Person {
 	String familyName;
 	int xLoc, yLoc;
 
+	public String toString(){
+		return "P";
+	}
 
 	public int getxLoc() {
 		return xLoc;
@@ -32,6 +35,4 @@ public class Person {
 		this.xLoc = xLoc;
 		this.yLoc = yLoc;
 	}
-
-
 }

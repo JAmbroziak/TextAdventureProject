@@ -13,6 +13,10 @@ public class CustomRoom extends Room{
         this.entrances = 0;
     }
 
+    public String toString(){
+        return "M";
+    }
+
     @Override
     public void enterRoom(Person x) {
 
