@@ -14,7 +14,7 @@ public class Room {
 
 	public String toString(){
 		if(occupant == null){
-			return "X";
+			return " ";
 		} else {
 			return occupant.toString();
 		}

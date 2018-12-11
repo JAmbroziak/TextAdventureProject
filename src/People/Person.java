@@ -9,7 +9,7 @@ public class Person {
 	int xLoc, yLoc;
 
 	public String toString(){
-		return "P";
+		return "U";
 	}
 
 	public int getxLoc() {
