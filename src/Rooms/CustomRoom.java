@@ -17,7 +17,7 @@ public class CustomRoom extends Room{
 
     public String toString(){
         if(occupant == null && guessed){
-            return "H";
+            return "J";
         } else if(occupant == null) {
             return " ";
         } else {

@@ -1,9 +1,9 @@
 package Game;
 
 import People.Person;
+import Rooms.Exit;
 import Rooms.Room;
 import Rooms.Board;
-import Rooms.WinningRoom;
 import Rooms.CustomRoom;
 
 import java.util.Scanner;
@@ -25,11 +25,11 @@ public class Runner {
 				office[x][y] = new Room(x,y);
 			}
 		}
-		
+
 		//Create a random winning room.
 		int x = (int)(Math.random()*office.length);
 		int y = (int)(Math.random()*office[0].length);
-		office[x][y] = new WinningRoom(x, y);
+		office[3][4] = new Exit(x, y);
 
 		x = (int)(Math.random()*office.length);
 		y = (int)(Math.random()*office[0].length);
