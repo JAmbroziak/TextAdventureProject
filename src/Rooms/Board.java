@@ -1,7 +1,5 @@
 package Rooms;
 
-import Rooms.Room;
-
 public class Board {
 
     private Room[][] map;
