@@ -7,7 +7,7 @@ import Items.*;
  */
 public class Person {
 	int xLoc, yLoc;
-	Item[] inventory;
+	public Item[] inventory;
 
 	public Person (int xLoc, int yLoc)
 	{
@@ -36,7 +36,12 @@ public class Person {
 		this.yLoc = yLoc;
 	}
 
-	public void pickupItem(){
-
+	public void pickupItem(Item thing){
+		for(int i = 0; i < inventory.length; i++){
+			if(inventory[i] == null){
+				inventory[i] = thing;
+				break;
+			}
+		}
 	}
 }

@@ -1,5 +1,6 @@
 package Rooms;
 
+import Items.ClosetKey;
 import People.Person;
 
 public class JanitorsCloset extends Room{
@@ -33,8 +34,17 @@ public class JanitorsCloset extends Room{
         } else if(lampOn && !unlocked){
             System.out.println("You stand at the door to the janitor's closet. It's locked.");
         } else {
-            System.out.println("You stand inside the closet. You see a few mops, cleaning chemicals and oddly enough, a rusty crowbar.\n"
-                    +" ");
+            System.out.println("Having unlocked the door, you stand inside. You see a few mops, cleaning chemicals and oddly\n"
+                    + "enough, a rusty crowbar. You reach for the main power switch and pulls it. The lights in the office come to life.");
+            Exit.setLightsOn();
+        }
+    }
+
+    public void unlock(Person x){
+        for(int i = 0; i < 3; i++){
+            if(x.inventory[i] instanceof ClosetKey){
+                this.unlocked = true;
+            }
         }
     }
 

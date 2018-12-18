@@ -6,6 +6,7 @@ import People.Person;
 public class Exit extends Room{
 
     private int entrances;
+    private static boolean lightsOn;
 
     public Exit(int x, int y) {
         super(x, y);
@@ -14,11 +15,14 @@ public class Exit extends Room{
     public Exit(int x, int y, int entrances) {
         super(x, y);
         this.entrances = entrances;
+        this.lightsOn = false;
     }
 
     public String toString(){
-        if(occupant == null){
+        if(occupant == null && Exit.lightsOn){
             return "E";
+        } else if(occupant == null){
+            return " ";
         } else {
             return occupant.toString();
         }
@@ -31,8 +35,8 @@ public class Exit extends Room{
     @Override
     public void enterRoom(Person x) {
         occupant = x;
-        x.setxLoc(4);
-        x.setyLoc(8);
+        x.setxLoc(8);
+        x.setyLoc(4);
         if(this.entrances < 1) {
             System.out.println("You stand at the exit. The door is locked shut.");
         }
@@ -44,5 +48,14 @@ public class Exit extends Room{
             System.out.println("The door decided to unlock itself. Go home.");
             Runner.gameOff();
         }
+    }
+
+    public static void setLightsOn(){
+        Exit.lightsOn = true;
+    }
+
+    public void leaveRoom(Person x)
+    {
+        occupant = null;
     }
 }

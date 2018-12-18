@@ -5,13 +5,11 @@ import People.Person;
 public class Room {
 	Person occupant;
 	int xLoc,yLoc;
-	public static boolean lightsOn;
 	
 	public Room(int x, int y)
 	{
 		xLoc = x;
 		yLoc = y;
-		this.lightsOn = false;
 	}
 
 	public String toString() {
@@ -32,10 +30,6 @@ public class Room {
 		occupant = x;
 		x.setxLoc(this.xLoc);
 		x.setyLoc(this.yLoc);
-	}
-
-	public static void setLightsOn(){
-		Room.lightsOn = true;
 	}
 
 	/**
