@@ -1,10 +1,7 @@
 package Game;
 
 import People.Person;
-import Rooms.Exit;
-import Rooms.Room;
-import Rooms.Board;
-import Rooms.CustomRoom;
+import Rooms.*;
 
 import java.util.Scanner;
 
@@ -15,37 +12,42 @@ public class Runner {
 	
 	public static void main(String[] args)
 	{
-		Room[][] office = new Room[5][5];
+		Room[][] building = new Room[9][9];
 		
-		//Fill the office with normal rooms
-		for (int x = 0; x<office.length; x++)
+		//Fill the building with normal rooms
+		for (int x = 0; x<building.length; x++)
 		{
-			for (int y = 0; y < office[x].length; y++)
+			for (int y = 0; y < building[x].length; y++)
 			{
-				office[x][y] = new Room(x,y);
+				building[x][y] = new Room(x,y);
 			}
 		}
-
+		
 		//Create a random winning room.
-		int x = (int)(Math.random()*office.length);
-		int y = (int)(Math.random()*office[0].length);
-		office[3][4] = new Exit(x, y);
+		int x = (int)(Math.random()*building.length);
+		int y = (int)(Math.random()*building[0].length);
+		building[8][4] = new Exit(x, y);
 
-		x = (int)(Math.random()*office.length);
-		y = (int)(Math.random()*office[0].length);
-		office[x][y] = new CustomRoom(x, y);
+		building[0][8] = new JanitorsCloset(x, y);
+
+		building[4][4] = new Desk(x, y);
 		 
 		 //Setup player 1 and the input scanner
-		Person player1 = new Person("FirstName", "FamilyName", 0,0);
-		office[0][0].enterRoom(player1);
-		Board board = new Board(office);
+		Person player1 = new Person(  0,0);
+		building[0][0].enterRoom(player1);
+		Board board = new Board(building);
 		Scanner in = new Scanner(System.in);
+		System.out.println("You've been working many long shifts lately, which has garnered some admiration from your boss.\n"
+				+ "Some of your jealous coworkers decided it would be hilarious to spike your coffee with sleeping meds.\n"
+				+ "You wake up at your desk in the corner. The room is pitch black and the bright red text of your desk clock \n"
+				+ "reads 2:38. You feel around for your phone and the keys the janitor left you, and they're nowhere to be \n"
+				+ "found. Still somewhat dazed, you stand up and proceed to figure out how to escape the office.");
 		while(gameOn)
 		{
 			board.print();
 			System.out.println("Where would you like to move? (Choose N, S, E, W)");
 			String move = in.nextLine();
-			if(validMove(move, player1, office))
+			if(validMove(move, player1, building))
 			{
 				System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
 				
@@ -53,8 +55,6 @@ public class Runner {
 			else {
 				System.out.println("Please choose a valid move.");
 			}
-			
-			
 		}
 		in.close();
 	}

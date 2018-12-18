@@ -17,7 +17,11 @@ public class Exit extends Room{
     }
 
     public String toString(){
-        return "E";
+        if(occupant == null){
+            return "E";
+        } else {
+            return occupant.toString();
+        }
     }
 
     /**
@@ -27,14 +31,18 @@ public class Exit extends Room{
     @Override
     public void enterRoom(Person x) {
         occupant = x;
-        x.setxLoc(this.xLoc);
-        x.setyLoc(this.yLoc);
+        x.setxLoc(4);
+        x.setyLoc(8);
         if(this.entrances < 1) {
-            System.out.println("You're standing at the exit to the parking lot. The door is locked shut.");
+            System.out.println("You stand at the exit. The door is locked shut.");
+        }
+        if(this.entrances > 0 && this.entrances < 3){
+            System.out.println("You stand at the locked exit door and stare at the single dim light in the parking lot.");
         }
         this.entrances++;
-        Runner.gameOff();
+        if(this.entrances == 3){
+            System.out.println("The door decided to unlock itself. Go home.");
+            Runner.gameOff();
+        }
     }
-
-
 }

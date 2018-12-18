@@ -12,8 +12,8 @@ public class Room {
 		yLoc = y;
 	}
 
-	public String toString(){
-		if(occupant == null){
+	public String toString() {
+		if (occupant == null) {
 			return " ";
 		} else {
 			return occupant.toString();
@@ -26,7 +26,7 @@ public class Room {
 	 */
 	public void enterRoom(Person x)
 	{
-		System.out.println("You enter a plain old room");
+		System.out.println("The office is pitch black and you can't see anything. You have to feel your way around.");
 		occupant = x;
 		x.setxLoc(this.xLoc);
 		x.setyLoc(this.yLoc);
