@@ -30,7 +30,7 @@ public class Runner {
 
 		building[0][8] = new JanitorsCloset(x, y);
 
-		building[4][4] = new Desk(x, y);
+		building[1][6] = new Desk(x, y);
 		 
 		 //Setup player 1 and the input scanner
 		Person player1 = new Person(  0,0);

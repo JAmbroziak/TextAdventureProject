@@ -1,5 +1,6 @@
 package Rooms;
 
+import Items.Item;
 import People.Person;
 
 public class Desk extends Room{
@@ -19,8 +20,9 @@ public class Desk extends Room{
     @Override
     public void enterRoom(Person x) {
         occupant = x;
-        x.setxLoc(4);
-        x.setyLoc(4);
-        System.out.println("You walk into a desk, and in falling onto it, you lay your hand on what feels like a key.");
+        x.setxLoc(1);
+        x.setyLoc(6);
+        System.out.println("You walk into a desk, and in trying to catch yourself, you flick a lamp on. there be a key");
+        JanitorsCloset.setLampOn();
     }
 }
