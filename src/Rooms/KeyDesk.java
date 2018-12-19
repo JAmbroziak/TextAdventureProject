@@ -7,17 +7,19 @@ public class KeyDesk extends Room{
 
     private static boolean entered;
     private static boolean keyacquired;
+    private static boolean lightsOn;
     private ClosetKey key;
 
     public KeyDesk(int x, int y){
         super(x, y);
         this.entered = false;
         this.keyacquired = false;
+        this.lightsOn = false;
         this.key = new ClosetKey();
     }
 
     public String toString(){
-        if(occupant == null && !KeyDesk.keyacquired){
+        if(occupant == null && !KeyDesk.keyacquired && !KeyDesk.lightsOn){
             return " ";
         } else if(occupant == null){
             return "K";
@@ -40,5 +42,9 @@ public class KeyDesk extends Room{
         } else {
             System.out.println("You stub your toe on the desk you think you got the little metal thing from and quietly swear in pain.");
         }
+    }
+
+    public static void setLightsOn(){
+        KeyDesk.lightsOn = true;
     }
 }

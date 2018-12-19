@@ -46,8 +46,11 @@ public class JanitorsCloset extends Room{
                     + "enough, a rusty crowbar. You reach for the main power switch and pulls it. The lights in the office come to life.");
             entrances++;
             x.removeItems();
+            RandomDesk.setLightsOn();
+            KeyDesk.setLightsOn();
             Exit.setLightsOn();
             Bathroom.setLightsOn();
+            Room.setLightsOn();
             x.pickupItem(chem);
             x.pickupItem(rust);
         } else {

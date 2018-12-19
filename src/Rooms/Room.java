@@ -5,11 +5,13 @@ import People.Person;
 public class Room {
 	Person occupant;
 	int xLoc,yLoc;
+	private static boolean lightsOn;
 	
 	public Room(int x, int y)
 	{
 		xLoc = x;
 		yLoc = y;
+		this.lightsOn = false;
 	}
 
 	public String toString() {
@@ -26,10 +28,18 @@ public class Room {
 	 */
 	public void enterRoom(Person x)
 	{
-		System.out.println("The office is pitch black and you can't see anything. You have to feel your way around.");
 		occupant = x;
 		x.setxLoc(this.xLoc);
 		x.setyLoc(this.yLoc);
+		if(!Room.lightsOn){
+			System.out.println("The office is pitch black and you can't see anything. You have to feel your way around.");
+		} else {
+			System.out.println("You walk around the now-lit office.");
+		}
+	}
+
+	public static void setLightsOn(){
+		Room.lightsOn = true;
 	}
 
 	/**

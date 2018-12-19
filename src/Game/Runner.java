@@ -35,17 +35,22 @@ public class Runner {
 		building[5][3] = new KeyDesk(x, y);
 
 		building[7][0] = new Bathroom(x, y);
+
+		int chance = (int)(Math.random()*1+1);
+		if(chance == 2){
+			building[4][5] = new RandomDesk(x, y, "");
+		} else {
+			building[2][3] = new RandomDesk(x, y);
+		}
 		 
 		 //Setup player 1 and the input scanner
 		Person player1 = new Person(  0,0);
 		building[0][0].enterRoom(player1);
 		Board board = new Board(building);
 		Scanner in = new Scanner(System.in);
-		System.out.println("You've been working many long shifts lately, which has garnered some admiration from your boss.\n"
-				+ "Some of your jealous coworkers decided it would be hilarious to spike your coffee with sleeping meds.\n"
-				+ "You wake up at your desk in the corner. The room is pitch black and the bright red text of your desk clock \n"
-				+ "reads 2:38. You feel around for your phone and the keys the janitor left you, and they're nowhere to be \n"
-				+ "found. Still somewhat dazed, you stand up and proceed to figure out how to escape the office.");
+		System.out.println("You abruptly awaken, and instantly look around you. You see darkness, with the only light being your desk clock, reading 2:49.\n"
+				+ "The last thing you remember was Brenda giving you some coffee before she left. You and her were always on rough terms, but you took the act as a kind gesture.\n"
+				+ "You feel around your desk and your pockets; no phone, no building keys from the janitor. Slowly, you get up and proceed to try and get your bearings.");
 		while(gameOn)
 		{
 			board.print();
