@@ -33,17 +33,17 @@ public class JanitorsCloset extends Room{
             System.out.println("The wall feels different here, but you can't see why.");
         } else if(lampOn && !unlocked){
             System.out.println("You stand at the door to the janitor's closet. It's locked.");
-        } else {
+        } else if(lampOn && unlocked){
             System.out.println("Having unlocked the door, you stand inside. You see a few mops, cleaning chemicals and oddly\n"
                     + "enough, a rusty crowbar. You reach for the main power switch and pulls it. The lights in the office come to life.");
             Exit.setLightsOn();
         }
     }
 
-    public void unlock(Person x){
+    public static void unlock(Person x){
         for(int i = 0; i < 3; i++){
             if(x.inventory[i] instanceof ClosetKey){
-                this.unlocked = true;
+                JanitorsCloset.unlocked = true;
             }
         }
     }

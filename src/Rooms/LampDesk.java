@@ -1,26 +1,23 @@
 package Rooms;
 
-import Items.*;
 import People.Person;
 
-public class Desk extends Room{
+public class LampDesk extends Room{
 
     private static boolean entered;
     private static boolean lampOn;
-    private ClosetKey key;
 
-    public Desk(int x, int y){
+    public LampDesk(int x, int y){
         super(x, y);
         this.entered = false;
         this.lampOn = false;
-        this.key = new ClosetKey();
     }
 
     public String toString(){
-        if(occupant == null && !Desk.lampOn){
+        if(occupant == null && !LampDesk.lampOn){
             return " ";
         } else if(occupant == null){
-            return "D";
+            return "L";
         } else {
             return occupant.toString();
         }
@@ -31,12 +28,11 @@ public class Desk extends Room{
         occupant = x;
         x.setxLoc(1);
         x.setyLoc(6);
-        Desk.entered = true;
-        if(Desk.entered && !Desk.lampOn) {
-            System.out.println("You walk into a desk, and in trying to catch yourself, you flick a lamp on.");
+        LampDesk.entered = true;
+        if(LampDesk.entered && !LampDesk.lampOn) {
+            System.out.println("You stumble into a desk, and in trying to catch yourself, you flick a lamp on.");
             JanitorsCloset.setLampOn();
-            Desk.lampOn = true;
-            x.pickupItem(key);
+            LampDesk.lampOn = true;
         } else {
             System.out.println("You stand by the desk with the lit lamp.");
         }
