@@ -44,4 +44,10 @@ public class Person {
 			}
 		}
 	}
+
+	public void removeItems(){
+		for(int i = 0; i < inventory.length; i++){
+			inventory[i] = null;
+		}
+	}
 }

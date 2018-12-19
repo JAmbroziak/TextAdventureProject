@@ -31,10 +31,10 @@ public class KeyDesk extends Room{
         occupant = x;
         x.setxLoc(5);
         x.setyLoc(3);
-        KeyDesk.entered = true;
-        if(KeyDesk.entered && !KeyDesk.keyacquired) {
+        entered = true;
+        if(entered && !keyacquired) {
             System.out.println("You bump into a desk. You feel around and come into contact with a small cold metal object. It feels like a key.");
-            KeyDesk.keyacquired = true;
+            keyacquired = true;
             x.pickupItem(key);
             JanitorsCloset.unlock(x);
         } else {

@@ -33,6 +33,8 @@ public class Runner {
 		building[1][6] = new LampDesk(x, y);
 
 		building[5][3] = new KeyDesk(x, y);
+
+		building[7][0] = new Bathroom(x, y);
 		 
 		 //Setup player 1 and the input scanner
 		Person player1 = new Person(  0,0);
