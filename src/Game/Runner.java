@@ -36,7 +36,7 @@ public class Runner {
 
 		building[7][0] = new Bathroom(x, y);
 
-		int chance = (int)(Math.random()*1+1);
+		int chance = (int)(Math.random()*2+1);
 		if(chance == 2){
 			building[4][5] = new RandomDesk(x, y, "");
 		} else {
